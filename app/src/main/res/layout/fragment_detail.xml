@@ -69,22 +69,22 @@
                                 android:textSize="@dimen/detail_title_text_size"
                                 android:textStyle="italic" />
 
-                            <LinearLayout
-                                android:id="@+id/play_layout"
-
+                            <tatteam.com.app_common.ui.drawable.FlatEffectDrawable
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="11"
-                                android:gravity="center">
+                                android:id="@+id/play_layout"
 
-                                <ImageView
-                                    android:id="@+id/play"
-                                    android:layout_width="@dimen/play_size"
-                                    android:layout_height="@dimen/play_size"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/play" />
-                            </LinearLayout>
+                                android:layout_weight="11">
+
+                                    <ImageView
+                                        android:id="@+id/play"
+                                        android:layout_width="@dimen/play_size"
+                                        android:layout_height="@dimen/play_size"
+                                        android:layout_centerInParent="true"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/play" />
+
+                            </tatteam.com.app_common.ui.drawable.FlatEffectDrawable>
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 

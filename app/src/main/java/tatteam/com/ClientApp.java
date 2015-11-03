@@ -2,6 +2,8 @@ package tatteam.com;
 
 import android.app.Application;
 
+import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.util.AppSpeaker;
 import tatteam.com.database.DataSource;
 
 
@@ -14,11 +16,13 @@ public class ClientApp extends Application {
     public void onCreate() {
         super.onCreate();
         DataSource.getInstance().init(getApplicationContext());
+
     }
 
     @Override
     public void onTerminate() {
-        DataSource.getInstance().destroy();
+        AppCommon.getInstance().destroy();
+        AppSpeaker.getInstance().destroy();
         super.onTerminate();
     }
 }

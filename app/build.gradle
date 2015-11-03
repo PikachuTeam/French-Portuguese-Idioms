@@ -41,7 +41,6 @@ dependencies {
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     compile 'com.getbase:floatingactionbutton:1.10.0'
     compile 'com.android.support:support-v4:23.0.1'
-    compile 'com.google.android.gms:play-services:7.5.0'
-    compile 'com.google.android.gms:play-services-gcm:7.3.0'
     compile 'com.github.hotchemi:android-rate:0.5.3'
+    compile project(':app_common')
 }

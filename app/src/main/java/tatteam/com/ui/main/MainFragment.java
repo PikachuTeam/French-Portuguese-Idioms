@@ -13,6 +13,7 @@ import hotchemi.android.rate.OnClickButtonListener;
 import tatteam.com.R;
 import tatteam.com.app.BaseActivity;
 import tatteam.com.app.BaseFragment;
+import tatteam.com.app_common.util.CloseAppHandler;
 import tatteam.com.ui.main.alphabet.AlphabetPage;
 import tatteam.com.ui.main.concepts.ConceptsPage;
 import tatteam.com.ui.main.recent.RecentPage;
@@ -21,11 +22,11 @@ import tatteam.com.utility.CommonUtil;
 /**
  * Created by ThanhNH on 9/11/2015.
  */
-public class MainFragment extends BaseFragment {
+public class MainFragment extends BaseFragment implements CloseAppHandler.OnCloseAppListener {
     private MyPageAdapter pagerAdapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private long backPressed;
+    private CloseAppHandler closeAppHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class MainFragment extends BaseFragment {
 
         setupTab(rootView);
         reloadDataIfNeeded();
-
+        closeAppHandler = new CloseAppHandler(getBaseActivity());
+        closeAppHandler.setListener(this);
         return rootView;
     }
 
@@ -83,23 +85,14 @@ public class MainFragment extends BaseFragment {
                 return;
             } else {
 
-                    handleDoubleBackToExit();
+                    closeAppHandler.handlerKeyBack(getBaseActivity());
 
             }
         } else {
-
-                handleDoubleBackToExit();
+            closeAppHandler.handlerKeyBack(getBaseActivity());
         }
     }
 
-    private void handleDoubleBackToExit() {
-        if (backPressed + 2000 > System.currentTimeMillis()) {
-            getActivity().finish();
-        } else {
-            backPressed = System.currentTimeMillis();
-            makeSnackBar(getResources().getString(R.string.please_click_back_again_to_exit));
-        }
-    }
 
 
     public void setupToolBar() {
@@ -110,6 +103,22 @@ public class MainFragment extends BaseFragment {
         getBaseActivity().getTvToolBarTitle().setText(getResources().getString(R.string.app_name));
         getBaseActivity().getToolBarBack().setClickable(false);
 
+    }
+
+    @Override
+    public void onRateAppDialogClose() {
+        getActivity().finish();
+    }
+
+    @Override
+    public void onTryToCloseApp() {
+        makeSnackBar(getResources().getString(R.string.please_click_back_again_to_exit));
+
+    }
+
+    @Override
+    public void onReallyWantToCloseApp() {
+        getActivity().finish();
     }
 
     private static class MyPageAdapter extends PagerAdapter {

@@ -2,13 +2,17 @@ package tatteam.com.ui;
 
 import android.os.Bundle;
 
+import java.util.Locale;
+
 import tatteam.com.app.BaseActivity;
 import tatteam.com.app.BaseFragment;
+import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.util.AppSpeaker;
 import tatteam.com.database.DataSource;
 import tatteam.com.ui.main.MainFragment;
 
 
-public class MainActivity extends BaseActivity {
+public abstract class BaseMainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +24,6 @@ public class MainActivity extends BaseActivity {
         return new MainFragment();
     }
 
-    @Override
-    protected boolean enableAdMod() {
-        return true;
-    }
-
-    @Override
-    protected void onRemoveAdClick() {
-    }
 
 
 

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import tatteam.com.R;
+import tatteam.com.app_common.ui.drawable.FlatEffectDark;
 import tatteam.com.entiny.IdiomeEntity;
 
 
@@ -38,7 +39,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
         if (!list.get(i).isHeader) {
-            viewHolder.item_favorite.setVisibility(View.VISIBLE);
+            viewHolder.cardView.setVisibility(View.VISIBLE);
             viewHolder.item_favorite_character.setVisibility(View.GONE);
 
             viewHolder.tvTitle.setText(list.get(i).Phrase);
@@ -47,13 +48,16 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 viewHolder.imageView.setBackgroundResource(R.drawable.star_icon_purple);
             else viewHolder.imageView.setBackgroundResource(R.drawable.star_icon_white2);
         } else {
-            viewHolder.item_favorite.setVisibility(View.GONE);
+            viewHolder.cardView.setVisibility(View.GONE);
             viewHolder.item_favorite_character.setVisibility(View.VISIBLE);
             viewHolder.tvFavoriteCharacter.setText(list.get(i).Phrase.toUpperCase());
 
         }
     }
-
+    public void updateData( List<IdiomeEntity> list){
+        this.list = list;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return list.size();
@@ -72,8 +76,8 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvTitle;
         public TextView tvMeaning;
-        public CardView item_favorite_character;
-        public CardView item_favorite;
+        public CardView item_favorite_character, cardView;
+        public FlatEffectDark item_favorite;
         public ImageView imageView;
         public TextView tvFavoriteCharacter;
         public LinearLayout imageView_layout;
@@ -87,8 +91,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             tvFavoriteCharacter = (TextView) itemView.findViewById(R.id.tvTittle_List_favorite);
             imageView = (ImageView) itemView.findViewById(R.id.favorite_icon);
             imageView_layout = (LinearLayout) itemView.findViewById(R.id.favorite_icon_layout);
-            item_favorite = (CardView) itemView.findViewById(R.id.card_view2);
+            item_favorite = (FlatEffectDark) itemView.findViewById(R.id.card_view2);
             item_favorite_character = (CardView) itemView.findViewById(R.id.list_item_favorite_character);
+            cardView = (CardView) itemView.findViewById(R.id.card_view3);
+
             imageView_layout.setOnClickListener(this);
             item_favorite.setOnClickListener(this);
 

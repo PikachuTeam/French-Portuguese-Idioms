@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import tatteam.com.R;
+import tatteam.com.app_common.ui.drawable.FlatEffectDark;
 import tatteam.com.entiny.IdiomeEntity;
 
 
@@ -70,26 +71,26 @@ public class ListIdiomsAdapter extends RecyclerView.Adapter<ListIdiomsAdapter.Vi
 
         public ImageView imageView;
         public LinearLayout imageViewLayout;
-        public CardView item_favorite;
+        public FlatEffectDark item_favorite;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
 
             tvTitle = (TextView) itemView.findViewById(R.id.tvTittle_List);
             tvMeaning = (TextView) itemView.findViewById(R.id.tvMeanning_List);
             imageView = (ImageView) itemView.findViewById(R.id.favorite_icon);
             imageViewLayout = (LinearLayout) itemView.findViewById(R.id.favorite_icon_layout);
             imageViewLayout.setOnClickListener(this);
-            item_favorite = (CardView) itemView.findViewById(R.id.card_view2);
+            item_favorite = (FlatEffectDark) itemView.findViewById(R.id.card_view2);
+            item_favorite.setOnClickListener(this);
         }
 
 
         @Override
         public void onClick(View v) {
             if (mlisListener != null) {
-                if (v == itemView) {
+                if (v == item_favorite) {
                     mlisListener.onIdiomClicked(getAdapterPosition());
 
                 } else mlisListener.onFavoriteChange(getAdapterPosition());

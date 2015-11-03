@@ -71,12 +71,10 @@ public class FavoriteFragment extends BaseFragment implements FavoriteAdapter.Cl
     @Override
     public void onFavoriteChange(int position) {
         DataSource.getInstance().changeFavorite(list.get(position).Phrase);
-        list.remove(position);
         makeSnackBar(getString(R.string.removed_from_favorite));
         list = getListFavorite();
-        mAdapter = new FavoriteAdapter(list);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setMlisListener(this);
+        mAdapter.updateData(list);
+
         if (list.size() == 0)
             noFavorite.setVisibility(View.VISIBLE);
         else noFavorite.setVisibility(View.GONE);

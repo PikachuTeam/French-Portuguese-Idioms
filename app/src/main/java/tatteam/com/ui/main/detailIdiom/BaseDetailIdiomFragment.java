@@ -2,7 +2,6 @@ package tatteam.com.ui.main.detailIdiom;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -21,6 +21,8 @@ import java.util.Locale;
 import tatteam.com.R;
 import tatteam.com.app.BaseActivity;
 import tatteam.com.app.BaseFragment;
+import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.util.AppSpeaker;
 import tatteam.com.database.DataSource;
 import tatteam.com.entiny.IdiomeEntity;
 import tatteam.com.ui.main.Page;
@@ -30,7 +32,7 @@ import tatteam.com.utility.CommonUtil;
 import tatteam.com.utility.ShareUtil;
 
 
-public class DetailIdiomFragment extends BaseFragment {
+public abstract class BaseDetailIdiomFragment extends BaseFragment {
 
     private String phrase;
     private MyPageAdapter pagerAdapter;
@@ -38,10 +40,9 @@ public class DetailIdiomFragment extends BaseFragment {
     private IdiomeEntity idiomeEntity;
     private TextView tvTitle, tvDescription, tvDefinition, tvExample;
 
-    private TextToSpeech textToSpeech;
     private FloatingActionButton fabGoogleSearch;
-    private LinearLayout ivPlay;
-
+    private RelativeLayout ivPlay;
+    protected abstract Locale getLocale();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,13 +55,14 @@ public class DetailIdiomFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
         refeshData();
-        ivPlay = (LinearLayout) rootView.findViewById(R.id.play_layout);
+        ivPlay = (RelativeLayout) rootView.findViewById(R.id.play_layout);
+        AppCommon.getInstance().initIfNeeded(getBaseActivity().getApplicationContext());
+        AppSpeaker.getInstance().initIfNeeded(getBaseActivity().getApplicationContext(), getLocale());
         ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (textToSpeech != null) {
-                    textToSpeech.speak(phrase, TextToSpeech.QUEUE_FLUSH, null);
-                }
+                if (AppSpeaker.getInstance().ready())
+                    AppSpeaker.getInstance().speak(phrase);
             }
         });
         tvTitle = (TextView) rootView.findViewById(R.id.tvTittle_detail);
@@ -187,30 +189,14 @@ public class DetailIdiomFragment extends BaseFragment {
     public void onResume() {
         setUpToolbar();
         super.onResume();
-        try {
-            textToSpeech = new TextToSpeech(getBaseActivity().getApplicationContext(), new TextToSpeech.OnInitListener() {
-                @Override
-                public void onInit(int status) {
-                    if (status != TextToSpeech.ERROR) {
-                        try {
-                            textToSpeech.setLanguage(new Locale("pt"));
-                            textToSpeech.setSpeechRate(0.8f);
-                        } catch (Exception e) {
-                            ivPlay.setVisibility(View.GONE);
-                        }
-                    }
-                }
-            });
-        } catch (Exception ae) {
-        }
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+        if (AppSpeaker.getInstance().ready()) {
+            AppSpeaker.getInstance().stop();
         }
     }
 

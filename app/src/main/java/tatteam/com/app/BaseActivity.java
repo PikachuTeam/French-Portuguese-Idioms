@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -14,11 +15,15 @@ import android.widget.TextView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.Locale;
+
 import tatteam.com.R;
+import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.ads.AdsSmallBannerHandler;
+import tatteam.com.app_common.util.AppSpeaker;
+import tatteam.com.app_common.util.CloseAppHandler;
 import tatteam.com.ui.main.favorite.FavoriteFragment;
 import tatteam.com.utility.ShareUtil;
 
@@ -26,9 +31,9 @@ import tatteam.com.utility.ShareUtil;
  * Created by hoaba on 8/21/2015.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity  {
+    protected abstract Locale getLocale();
     protected FloatingActionButton test, fbMyTopic, fbFavorite, fbFeeback, fbRemoveAd;
-    protected AdView mAdView;
     private FloatingActionsMenu actionsMenu;
     private Toolbar toolbar;
     private RelativeLayout fabListen;
@@ -37,8 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private ImageView btnToolBarItem2;
     private TextView tvToolBarTitle, tvToolBarTitleFake;
     private LinearLayout contenToolBar, toolBarFake, toolBarItem1, toolBarItem2, toolBarBack, toolBarBackFake;
-    private boolean isAdLoadingFine = false;
-
+    private AdsSmallBannerHandler adsHandler;
     protected abstract BaseFragment getFragmentContent();
 
     @Override
@@ -46,9 +50,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
+        AppCommon.getInstance().initIfNeeded(getApplicationContext());
+        AppSpeaker.getInstance().initIfNeeded(getApplicationContext(), getLocale());
         setupToolBar();
         setFabMenu();
-
+        FrameLayout adsContent = (FrameLayout)findViewById(R.id.ads_content);
+        adsHandler = new AdsSmallBannerHandler(this,adsContent);
+        adsHandler.setup();
         addFragmentContent();
     }
 
@@ -152,6 +160,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
 
         fbRemoveAd = (FloatingActionButton) findViewById(R.id.fab_removead);
+        fbRemoveAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actionsMenu.collapse();
+                AppCommon.getInstance().openMoreAppDialog(BaseActivity.this);
+            }
+        });
 
     }
 
@@ -243,4 +258,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     public LinearLayout getToolBarFake() {
         return toolBarFake;
     }
+
+
 }

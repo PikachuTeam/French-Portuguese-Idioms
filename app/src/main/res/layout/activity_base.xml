@@ -1,31 +1,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/window_background">
 
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
     <FrameLayout
-        android:id="@+id/main_fragment"
+        android:id="@+id/ads_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"></FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/a"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"></FrameLayout>
+        android:layout_above="@+id/ads_content">
 
 
-    <include
-        android:id="@+id/fablisten"
-        layout="@layout/fablisten" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <include
-        android:id="@+id/fabmenu"
-        layout="@layout/fab" />
+
+        <FrameLayout
+            android:id="@+id/main_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"></FrameLayout>
+
+
+        <include
+            android:id="@+id/fablisten"
+            layout="@layout/fablisten" />
+
+        <include
+            android:id="@+id/fabmenu"
+            layout="@layout/fab" />
+    </RelativeLayout>
+
 
 </RelativeLayout>
