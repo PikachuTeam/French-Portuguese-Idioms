@@ -1,0 +1,28 @@
+<tatteam.com.app.FractionFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/list_idioms"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context="com.example.shu.idioms.activity.IdiomsActivity">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_idioms"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        </android.support.v4.view.ViewPager>
+
+    </RelativeLayout>
+</tatteam.com.app.FractionFrameLayout>

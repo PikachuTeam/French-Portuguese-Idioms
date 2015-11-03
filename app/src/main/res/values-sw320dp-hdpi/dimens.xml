@@ -1,0 +1,111 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    // Nexus 4
+
+    <dimen name="activity_horizontal_margin">14.4dp</dimen>
+    <dimen name="activity_vertical_margin">14.4dp</dimen>
+    <dimen name="viewpager_horizontal_margin">4.5dp</dimen>
+
+    // Grid layout
+    <dimen name="grid_item_height">99dp</dimen>
+    <dimen name="grid_item_width">60.3dp</dimen>
+    <dimen name="grid_textSize">31sp</dimen>
+    <dimen name="card_view_padding_conttent">14.4dp</dimen>
+
+    // List idioms
+    <dimen name="list_idiom_textsize">14.5sp</dimen>
+    <dimen name="list_idiom_margin_left">14.4dp</dimen>
+    <dimen name="list_idiom_meaning_textsize">11.7sp</dimen>
+    <dimen name="list_idiom_meaning_margin_left">18dp</dimen>
+    <dimen name="line_margin">14.4dp</dimen>
+    <dimen name="list_padding">7.2dp</dimen>
+    <dimen name="list_idioms_margin_left_right">7.2dp</dimen>
+
+    <dimen name="item_margin_right">7.2dp</dimen>
+
+    <dimen name="item_small_margin_right">2.7dp</dimen>
+    <dimen name="item_small_margin_left">1.8dp</dimen>
+
+    //Favorite icon
+    <dimen name="favorite_icon_margin_top">4.5dp</dimen>
+    <dimen name="favorite_icon_size">22.5dp</dimen>
+    <dimen name="favorite_text_size">16.2sp</dimen>
+
+    //Cardview in TablayoutViewpager
+    <dimen name="cardview_content_pading_left_right">5.4dp</dimen>
+    <dimen name="cardview_content_margin_left_right">10.8dp</dimen>
+
+    //Cardview in Detail Fragment
+    <dimen name="detail_padding">4.5dp</dimen>
+    <dimen name="detail_padding2">3.6dp</dimen>
+    <dimen name="definition_example_text_size">13.5sp</dimen>
+    <dimen name="detail_title_text_size">20.7sp</dimen>
+    <dimen name="detail_padding_left">13.5dp</dimen>
+    <dimen name="detail_description_text_size">13.5sp</dimen>
+    <dimen name="detail_description_margin_left">27dp</dimen>
+    <dimen name="detail_definition_margin_left">7.2dp</dimen>
+    <dimen name="detail_definition_text_size">16.2sp</dimen>
+    <dimen name="detail_example_margin_left">9dp</dimen>
+    <dimen name="detail_example_text_size">15.3sp</dimen>
+
+
+    <dimen name="detail_title_margin_left">14.4dp</dimen>
+    <dimen name="detail_card_content_margin_bottom">0.9dp</dimen>
+
+    //Small list
+    <dimen name="small_list_margin_left">28.8dp</dimen>
+    <dimen name="small_list_margin">4.5dp</dimen>
+    <dimen name="tab_padding_top">4.5dp</dimen>
+    <dimen name="tab_height">36dp</dimen>
+    <dimen name="small_tab_margin_right">2.7dp</dimen>
+    <dimen name="small_tab_margin_left">1.8dp</dimen>
+    //Toolbar
+    <dimen name="status_margin_height">18dp</dimen>
+
+    <dimen name="toolbar_img_item1_margin_left">25.2dp</dimen>
+    <dimen name="toolbar_img_item2_margin_left">12.6dp</dimen>
+    <dimen name="toolbar_img_item_size">22.5dp</dimen>
+    <dimen name="toolbar_img_item_margin">4.5dp</dimen>
+    <dimen name="toolbar_225dp">225dp</dimen>
+    <dimen name="toolbar_60dp">47.7dp</dimen>
+    <dimen name="toolbar_tittle_margin_left">14.4dp</dimen>
+    <dimen name="toolbar_tittle_margin_right">135dp</dimen>
+    <dimen name="toolbar_tittle_margin_top">4.5dp</dimen>
+    <dimen name="toolbar_tittle_size">20.7sp</dimen>
+    <dimen name="toolbar_padding_bot">4.5dp</dimen>
+    <dimen name="play_size">27dp</dimen>
+
+    //Floating Button
+    <dimen name="fab_size1">58.5dp</dimen>
+    <dimen name="dp65">58.5dp</dimen>
+    <dimen name="non_favorite_recent_text_size">23.4sp</dimen>
+    <dimen name="float_button_margin_bottom">32.4dp</dimen>
+    <dimen name="float_button_margin_right">5.4dp</dimen>
+
+    // Topic
+    <dimen name="character_item_size">54dp</dimen>
+    <dimen name="character_item_size_0.5">27dp</dimen>
+    <dimen name="content_margin_left_right">4.5dp</dimen>
+    <dimen name="dp1">0.9dp</dimen>
+    <dimen name="splash_screen_size">315dp</dimen>
+    <dimen name="dp2">1.8dp</dimen>
+    <dimen name="dp3">2.7dp</dimen>
+    <dimen name="dp4">3.6dp</dimen>
+    <dimen name="dp5">4.5dp</dimen>
+    <dimen name="dp6">5.4dp</dimen>
+    <dimen name="dp7">6.3dp</dimen>
+    <dimen name="dp8">7.2dp</dimen>
+    <dimen name="dp14">12.6dp</dimen>
+    <dimen name="dp23">12.6dp</dimen>
+    <dimen name="text_backTopic">14.4sp</dimen>
+    <dimen name="dp40">36dp</dimen>
+    <dimen name="toolbar">49.5dp</dimen>
+    <dimen name="text_size10">9sp</dimen>
+    <dimen name="text_size23">20.7sp</dimen>
+    <dimen name="text_size_25">19.8sp</dimen>
+
+    <dimen name="toolbar_height">36dp</dimen>
+
+    <dimen name="text_size_tab_layout_main">13.5sp</dimen>
+    <dimen name="text_size_tab_layout_detail_idiom">10.8sp</dimen>
+</resources>

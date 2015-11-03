@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background2"
+    android:paddingTop="@dimen/detail_card_content_margin_bottom"
+    tools:context="com.example.shu.idioms.ui.listidioms.listidiomsbyletter.ListFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_small_list_idioms"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:fadeScrollbars="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="@dimen/dp3"
+        android:scrollbarThumbVertical="@color/primary"
+        android:scrollbars="vertical" />
+
+</FrameLayout>

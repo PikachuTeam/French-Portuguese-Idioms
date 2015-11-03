@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="banner_ad_unit_id">ca-app-pub-4338754459250860/9960444030</string>
+    <string name="subject_mail_feedback">[Idiomes Français] Android feedback</string>
+
+    <string name="app_name">Idiomes Français</string>
+    <string name="title_activity_main">Idiomes Français</string>
+    <string name="null_string"> </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tab1">CONCEPTS</string>
+    <string name="tab2">PARCOURIR</string>
+    <string name="tab3">RÉCENT</string>
+
+    <string name="tab_detail1">Synonyme(s)</string>
+    <string name="tab_detail2">Antonyme(s)</string>
+    <string name="tab_detail3">Traduction(s)</string>
+
+    <string name="added_to_favorite">Ajouté à favori</string>
+    <string name="removed_from_favorite">Retiré de favoris</string>
+    <string name="coming_soon">À venir ..</string>
+    <string name="favorite">Favori</string>
+    <string name="remove_ads">Supprimer les pubs</string>
+    <string name="test">Test</string>
+    <string name="my_topic">Mes concepts</string>
+    <string name="feed_back">Feedback</string>
+    <string name="idiom">Idiome</string>
+
+
+    <string name="no_favorite_idioms">aucun idiomes préférés</string>
+    <string name="no_recent_idioms">aucun idiomes récents</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_idioms">IdiomsActivity</string>
+    <string name="title_activity_details_idiom">DetailsIdiomActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="please_click_back_again_to_exit">S\'il vous plaît cliquer à nouveau pour quitter</string>
+</resources>

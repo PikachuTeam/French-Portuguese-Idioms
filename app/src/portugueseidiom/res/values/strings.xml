@@ -1,0 +1,43 @@
+<resources>
+
+    <string name="banner_ad_unit_id">ca-app-pub-4338754459250860/5116285236</string>
+    <string name="subject_mail_feedback">[Expressões Idiomáticas] Android feedback</string>
+
+    <string name="app_name">Expressões Idiomáticas</string>
+    <string name="title_activity_main">Expressões Idiomáticas</string>
+    <string name="null_string"> </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tab1">CONCEITOS</string>
+    <string name="tab2">PROCURAR</string>
+    <string name="tab3">RECENTE</string>
+
+    <string name="tab_detail1">Sinônimo(s)</string>
+    <string name="tab_detail2">Antônimo(s)</string>
+    <string name="tab_detail3">Traduction(s)</string>
+
+    <string name="added_to_favorite">Adicionado ao favorito</string>
+    <string name="removed_from_favorite">Removido dos favoritos</string>
+    <string name="coming_soon">Em breve ..</string>
+    <string name="favorite">Favorito</string>
+    <string name="remove_ads">Remover propagandas</string>
+    <string name="test">Teste</string>
+    <string name="my_topic">Meus conceitos</string>
+    <string name="feed_back">Feedback</string>
+    <string name="idiom">Idioma</string>
+
+
+    <string name="no_favorite_idioms">Há expressões favoritas</string>
+    <string name="no_recent_idioms">Não há expressões idiomáticas recentes</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_idioms">IdiomsActivity</string>
+    <string name="title_activity_details_idiom">DetailsIdiomActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="please_click_back_again_to_exit">Por favor, clique em Back novamente para sair</string>
+
+</resources>

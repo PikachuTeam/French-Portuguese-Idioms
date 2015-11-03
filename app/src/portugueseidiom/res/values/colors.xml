@@ -1,0 +1,77 @@
+<resources>
+
+
+    <color name="primary_dark">#027958</color>
+    <color name="primary">#009667</color>
+
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#ff4d48</color>
+    <color name="accent1">#ff6d66</color>
+    <color name="indicatorColor">#ff756d</color>
+
+    <color name="topic_item">#009667</color>
+    <color name="favorite_character_background">#00b67d</color>
+    <color name="my_grid_item">#009667</color>
+
+    <color name="my_text">#005248</color>
+    <color name="my_list_secondary_text">#00695d</color>
+    <color name="my_text2">#003b34</color>
+    <color name="my_text3">#002e29</color>
+    <color name="fab_label">#bc053523</color>
+    <color name="fab_press">#bc095c3d</color>
+    <color name="fab_deactive">#444444</color>
+    <color name="fab_deactive_press">#767676</color>
+
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="my_grid_character">#FFFFFF</color>
+    <color name="primary_text">#ffffff</color>
+    <color name="secondary_text">#ffffff</color>
+
+
+    <!--<color name="primary_dark">#1976D2</color>-->
+    <!--<color name="primary">#2196F3</color>-->
+
+    <!--<color name="primary_light">#BBDEFB</color>-->
+    <!--<color name="accent">#ff388d</color>-->
+    <!--<color name="accent1">#ff538d</color>-->
+    <!--<color name="indicatorColor">#ff6198</color>-->
+
+    <!--<color name="topic_item">#2196F3</color>-->
+    <!--<color name="favorite_character_background">#BBDEFB</color>-->
+    <!--<color name="my_grid_item">#2196F3</color>-->
+
+    <!--<color name="my_text">#0e4073</color>-->
+    <!--<color name="my_list_secondary_text">#114b86</color>-->
+    <!--<color name="my_text2">#0e3e70</color>-->
+    <!--<color name="my_text3">#0a345b</color>-->
+    <!--<color name="fab_label">#c70c355f</color>-->
+    <!--<color name="fab_press">#c3124f8d</color>-->
+    <!--<color name="fab_deactive">#444444</color>-->
+    <!--<color name="fab_deactive_press">#767676</color>-->
+
+    <!--<color name="icons">#FFFFFF</color>-->
+    <!--<color name="divider">#B6B6B6</color>-->
+    <!--<color name="my_grid_character">#FFFFFF</color>-->
+    <!--<color name="primary_text">#ffffff</color>-->
+    <!--<color name="secondary_text">#ffffff</color>-->
+    <color name="red">#ff1e1c</color>
+
+    <color name="hight_light">#a8ff8c6b</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="window_background">#f1f1f1</color>
+    <color name="window_background1">#d9d9d9</color>
+    <color name="window_background2">#e8e8e8</color>
+
+
+
+
+
+    <color name="detail_background">#bdbdbd</color>
+    <color name="detail_background2">#e1e1e1</color>
+
+</resources>
+
+

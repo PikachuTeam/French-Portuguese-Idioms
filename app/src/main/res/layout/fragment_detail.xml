@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<tatteam.com.app.FractionFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/window_background2"
+        android:orientation="vertical"
+
+
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/detail_card_content_margin_bottom"
+            android:layout_weight="70">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/detail_padding"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    >
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/detail_padding"
+                        card_view:cardBackgroundColor="#FFFFFF"
+                        card_view:cardCornerRadius="@dimen/dp2"
+                        card_view:cardElevation="@dimen/dp2"
+
+                        card_view:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tvTittle_detail"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/detail_padding"
+                                android:layout_marginLeft="@dimen/detail_title_margin_left"
+                                android:layout_marginRight="@dimen/detail_padding"
+                                android:layout_marginTop="@dimen/detail_padding"
+                                android:layout_weight="89"
+                                android:maxLines="2"
+                                android:text="abonder dans son sens"
+                                android:textColor="@color/my_text2"
+                                android:textIsSelectable="true"
+                                android:textSize="@dimen/detail_title_text_size"
+                                android:textStyle="italic" />
+
+                            <LinearLayout
+                                android:id="@+id/play_layout"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="11"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/play"
+                                    android:layout_width="@dimen/play_size"
+                                    android:layout_height="@dimen/play_size"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/play" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp3"
+                    android:layout_marginRight="@dimen/dp3"
+                    android:layout_marginTop="@dimen/detail_padding"
+
+                    >
+
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp3"
+                        card_view:cardBackgroundColor="#FFFFFF"
+                        card_view:cardCornerRadius="@dimen/dp2"
+                        card_view:cardElevation="@dimen/dp3"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ScrollView
+                                android:id="@+id/scrollView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="@dimen/detail_padding"
+                                android:paddingRight="@dimen/detail_padding">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/detail_padding_left"
+                                    android:paddingRight="@dimen/detail_padding">
+
+                                    <TextView
+                                        android:id="@+id/tvDescription"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/detail_description_margin_left"
+                                        android:layout_marginRight="@dimen/detail_padding"
+                                        android:text="abonder dans son sens, loc. verb."
+                                        android:textColor="@color/my_text"
+                                        android:textIsSelectable="true"
+                                        android:textSize="@dimen/detail_description_text_size"
+                                        android:textStyle="italic" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/detail_padding2"
+                                        android:text="definição :"
+                                        android:textColor="@color/my_text2"
+                                        android:textSize="@dimen/definition_example_text_size"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvDefinition"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/detail_definition_margin_left"
+
+
+                                        android:layout_marginRight="@dimen/detail_padding"
+                                        android:text="OPINIÂTRETÉ : être attaché avec opiniâtreté à sa manière de voir"
+
+                                        android:textColor="@color/my_text"
+                                        android:textIsSelectable="true"
+                                        android:textSize="@dimen/detail_definition_text_size"
+
+
+                                        />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/detail_padding2"
+                                        android:layout_marginTop="@dimen/detail_padding2"
+                                        android:text="exemplo :"
+                                        android:textColor="@color/my_text"
+                                        android:textSize="@dimen/definition_example_text_size"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvExample"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/detail_padding"
+                                        android:layout_marginLeft="@dimen/detail_example_margin_left"
+                                        android:layout_marginRight="@dimen/detail_padding"
+                                        android:text="La formation de M. Millon a notamment réuni à ce forum une poignée de parlementaires de droite, toutes tendances confondues, qui ont abondé dans son sens. (membres.lycos.fr/dnthines/page35M.html, 28/07/05)"
+
+                                        android:textColor="@color/my_text2"
+                                        android:textIsSelectable="true"
+                                        android:textSize="@dimen/detail_example_text_size"
+
+
+                                        />
+                                </LinearLayout>
+                            </ScrollView>
+
+                            <com.getbase.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/fab_google_search"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_margin="@dimen/dp2"
+                                fab:fab_colorNormal="@color/primary"
+                                fab:fab_colorPressed="@color/primary_light"
+                                fab:fab_icon="@drawable/earth213"
+                                fab:fab_size="mini"
+
+                                />
+
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/small_list_margin"
+                    android:paddingLeft="@dimen/small_list_margin"
+
+                    android:paddingRight="@dimen/small_list_margin">
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tabLayout_detail"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_height"
+                        android:layout_marginLeft="@dimen/small_tab_margin_left"
+                        android:layout_marginRight="@dimen/small_tab_margin_right"
+                        android:background="#FFFFFF"
+
+
+                        android:elevation="@dimen/dp2"
+                        android:scrollbars="horizontal"
+                        app:tabIndicatorColor="@color/primary_dark"
+                        app:tabIndicatorHeight="@dimen/dp4"
+
+                        card_view:tabSelectedTextColor="@color/my_text2"
+                        card_view:tabTextColor="@color/my_text" />
+
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/view_pager_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/tabLayout_detail"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</tatteam.com.app.FractionFrameLayout>

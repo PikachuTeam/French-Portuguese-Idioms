@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tatteam.com.portugueseidiom.app.FractionFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#a0338a">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#a0338a">
+
+            <Button
+                android:id="@+id/button"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="New Button" />
+        </LinearLayout>
+    </LinearLayout>
+</tatteam.com.portugueseidiom.app.FractionFrameLayout>

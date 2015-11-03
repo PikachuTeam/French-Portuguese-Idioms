@@ -1,0 +1,46 @@
+<tatteam.com.app.FractionFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_list_in_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/window_background">
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/recycler_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fadeScrollbars="true"
+
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarSize="@dimen/dp3"
+            android:scrollbarThumbVertical="@color/primary_dark"
+            android:scrollbars="vertical" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/non_favorite"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="@dimen/dp65">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/dp65"
+            android:gravity="center"
+            android:text="@string/no_favorite_idioms"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/non_favorite_recent_text_size" />
+
+    </RelativeLayout>
+</tatteam.com.app.FractionFrameLayout>
