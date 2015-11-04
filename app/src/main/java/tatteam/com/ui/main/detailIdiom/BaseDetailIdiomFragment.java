@@ -146,9 +146,9 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
         getBaseActivity().getToolBarItem2().setVisibility(View.VISIBLE);
 
         if (idiomeEntity.isFavorite > 0)
-            getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_white);
+            getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_favorite);
         else
-            getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_purple);
+            getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_white);
 
 
         getBaseActivity().getToolBarBack().setOnClickListener(new View.OnClickListener() {
@@ -164,11 +164,11 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
                 DataSource.getInstance().changeFavorite(phrase);
                 if (idiomeEntity.isFavorite > 0) {
                     idiomeEntity.isFavorite = 0;
-                    getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_purple);
+                    getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_white);
                     makeSnackBar(getString(R.string.removed_from_favorite));
                 } else {
                     idiomeEntity.isFavorite = 1;
-                    getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_white);
+                    getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_favorite);
                     makeSnackBar(getString(R.string.added_to_favorite));
                 }
             }
