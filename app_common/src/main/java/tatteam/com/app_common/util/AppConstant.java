@@ -10,6 +10,7 @@ public interface AppConstant {
     int RE_SYNC_INTERVAL = 3;
 
     enum AdsType {
+        SMALL_BANNER_TEST("small_banner_test"),
         SMALL_BANNER_GAME("small_banner_game"),
         SMALL_BANNER_LANGUAGE_LEARNING("small_banner_language_learning"),
         SMALL_BANNER_DRIVING_TEST("small_banner_driving_test");

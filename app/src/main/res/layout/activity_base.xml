@@ -30,15 +30,13 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar"></FrameLayout>
 
-
         <include
             android:id="@+id/fablisten"
             layout="@layout/fablisten" />
-
-        <include
-            android:id="@+id/fabmenu"
-            layout="@layout/fab" />
     </RelativeLayout>
 
+    <include
+        android:id="@+id/fabmenu"
+        layout="@layout/fab" />
 
 </RelativeLayout>

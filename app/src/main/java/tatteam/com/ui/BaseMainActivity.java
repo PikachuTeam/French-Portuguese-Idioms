@@ -30,7 +30,7 @@ public abstract class BaseMainActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        DataSource.getInstance().destroy();
+//        DataSource.getInstance().destroy();
         super.onDestroy();
     }
 }

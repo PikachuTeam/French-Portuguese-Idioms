@@ -1,7 +1,5 @@
 <resources>
-
-    <string name="banner_ad_unit_id">ca-app-pub-4338754459250860/9960444030</string>
-    <string name="subject_mail_feedback">[Idiomes Français] Android feedback</string>
+    <string name="subject_mail_feedback">[Idiomebs Français] Android feedback</string>
 
     <string name="app_name">Idiomes Français</string>
     <string name="title_activity_main">Idiomes Français</string>
@@ -21,7 +19,7 @@
     <string name="removed_from_favorite">Retiré de favoris</string>
     <string name="coming_soon">À venir ..</string>
     <string name="favorite">Favori</string>
-    <string name="remove_ads">Plus d'applications</string>
+    <string name="remove_ads">Plus d\'applications</string>
     <string name="test">Test</string>
     <string name="my_topic">Mes concepts</string>
     <string name="feed_back">Feedback</string>
