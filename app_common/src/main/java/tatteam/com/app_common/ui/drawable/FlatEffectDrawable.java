@@ -40,7 +40,7 @@ public class FlatEffectDrawable extends RelativeLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            highlight.setBackgroundColor(getResources().getColor(R.color.drawable_flat_light));
+            highlight.setBackgroundColor(getResources().getColor(R.color.drawable_flat_effect));
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP
                 || event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             highlight.setBackgroundColor(Color.TRANSPARENT);

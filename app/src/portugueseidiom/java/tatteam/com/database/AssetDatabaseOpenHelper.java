@@ -35,6 +35,14 @@ public class AssetDatabaseOpenHelper {
             }
         } else {
             dbFile = new File(dbPath + DB_NAME);
+            try {
+                if (!dbFile.exists()) {
+                    dbFile.createNewFile();
+                    copyDatabase(dbFile);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException("Error creating source database", e);
+            }
         }
         return SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READWRITE);
 

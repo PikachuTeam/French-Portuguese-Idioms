@@ -21,7 +21,9 @@ import java.util.Locale;
 
 import tatteam.com.R;
 import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.ads.AdsBigBannerHandler;
 import tatteam.com.app_common.ads.AdsSmallBannerHandler;
+import tatteam.com.app_common.util.AppConstant;
 import tatteam.com.app_common.util.AppSpeaker;
 import tatteam.com.app_common.util.CloseAppHandler;
 import tatteam.com.ui.main.favorite.FavoriteFragment;
@@ -31,8 +33,12 @@ import tatteam.com.utility.ShareUtil;
  * Created by hoaba on 8/21/2015.
  */
 
-public abstract class BaseActivity extends AppCompatActivity  {
+public abstract class BaseActivity extends AppCompatActivity {
+    private static final int BIG_ADS_SHOWING_INTERVAL = 8;
+    private static int BIG_ADS_SHOWING_COUNTER = 1;
+
     protected abstract Locale getLocale();
+
     protected FloatingActionButton test, fbMyTopic, fbFavorite, fbFeeback, fbRemoveAd;
     private FloatingActionsMenu actionsMenu;
     private Toolbar toolbar;
@@ -42,7 +48,9 @@ public abstract class BaseActivity extends AppCompatActivity  {
     private ImageView btnToolBarItem2;
     private TextView tvToolBarTitle, tvToolBarTitleFake;
     private LinearLayout contenToolBar, toolBarFake, toolBarItem1, toolBarItem2, toolBarBack, toolBarBackFake;
-    private AdsSmallBannerHandler adsHandler;
+    private AdsSmallBannerHandler adsSmallBannerHandler;
+    private AdsBigBannerHandler adsBigBannerHandler;
+
     protected abstract BaseFragment getFragmentContent();
 
     @Override
@@ -54,10 +62,32 @@ public abstract class BaseActivity extends AppCompatActivity  {
         AppSpeaker.getInstance().initIfNeeded(getApplicationContext(), getLocale());
         setupToolBar();
         setFabMenu();
-        FrameLayout adsContent = (FrameLayout)findViewById(R.id.ads_content);
-        adsHandler = new AdsSmallBannerHandler(this,adsContent);
-        adsHandler.setup();
+        FrameLayout adsContent = (FrameLayout) findViewById(R.id.ads_content);
+        adsSmallBannerHandler = new AdsSmallBannerHandler(this, adsContent, AppConstant.AdsType.SMALL_BANNER_LANGUAGE_LEARNING);
+        adsSmallBannerHandler.setup();
+
+        adsBigBannerHandler = new AdsBigBannerHandler(this, AppConstant.AdsType.BIG_BANNER_LANGUAGE_LEARNING);
+        adsBigBannerHandler.setup();
+
         addFragmentContent();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        adsSmallBannerHandler.destroy();
+        adsBigBannerHandler.destroy();
+    }
+
+    public void showBigAdsIfNeeded() {
+        if (BIG_ADS_SHOWING_COUNTER % BIG_ADS_SHOWING_INTERVAL == 0) {
+            try {
+                adsBigBannerHandler.show();
+            } catch (Exception ex) {
+            }
+        }
+        BIG_ADS_SHOWING_COUNTER++;
     }
 
     @Override

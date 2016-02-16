@@ -1,6 +1,5 @@
 package tatteam.com.ui.main.listidioms;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import tatteam.com.R;
-import tatteam.com.app_common.ui.drawable.FlatEffectDark;
+import tatteam.com.app.FlatEffectDark;
 import tatteam.com.entiny.IdiomeEntity;
 
 

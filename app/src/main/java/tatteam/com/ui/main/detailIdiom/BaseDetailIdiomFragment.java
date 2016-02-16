@@ -47,6 +47,8 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getBaseActivity().showBigAdsIfNeeded();
     }
 
 

@@ -8,8 +8,8 @@ android {
         applicationId "tatteam.com"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.3"
     }
     buildTypes {
         release {
@@ -20,13 +20,9 @@ android {
     productFlavors {
         frenchidiom {
             applicationId "tatteam.com.frenchidiom"
-            versionCode 1
-            versionName "1.0"
         }
         portugueseidiom {
             applicationId "tatteam.com.portugueseidiom"
-            versionCode 1
-            versionName "1.0"
         }
     }
 }

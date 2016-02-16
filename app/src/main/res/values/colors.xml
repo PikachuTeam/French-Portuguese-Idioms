@@ -38,6 +38,8 @@
     <color name="detail_background">#bdbdbd</color>
     <color name="detail_background2">#e1e1e1</color>
     <color name="detai_secondary_text">#464646</color>
+
+    <color name="drawable_flat_effect">#8db1acad</color>
 </resources>
 
 

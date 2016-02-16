@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import tatteam.com.R;
-import tatteam.com.app_common.ui.drawable.FlatEffectDark;
+import tatteam.com.app.FlatEffectDark;
 import tatteam.com.entiny.IdiomeEntity;
 
 

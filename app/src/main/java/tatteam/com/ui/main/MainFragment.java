@@ -85,11 +85,11 @@ public class MainFragment extends BaseFragment implements CloseAppHandler.OnClos
                 return;
             } else {
 
-                    closeAppHandler.handlerKeyBack(getBaseActivity());
+                    closeAppHandler.setKeyBackPress(getBaseActivity());
 
             }
         } else {
-            closeAppHandler.handlerKeyBack(getBaseActivity());
+            closeAppHandler.setKeyBackPress(getBaseActivity());
         }
     }
 

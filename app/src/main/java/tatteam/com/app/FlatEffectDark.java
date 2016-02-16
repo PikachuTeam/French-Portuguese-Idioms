@@ -1,4 +1,4 @@
-package tatteam.com.app_common.ui.drawable;
+package tatteam.com.app;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import tatteam.com.app_common.R;
-
+import tatteam.com.R;
 
 /**
- * Created by ThanhNH on 10/14/2015.
+ * Created by ThanhNH on 2/16/2016.
  */
 public class FlatEffectDark extends RelativeLayout {
     private View highlight;
+    private int color;
 
     public FlatEffectDark(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class FlatEffectDark extends RelativeLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            highlight.setBackgroundColor(getResources().getColor(R.color.drawable_flat_dark));
+            highlight.setBackgroundColor(color);
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP
                 || event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             highlight.setBackgroundColor(Color.TRANSPARENT);
@@ -49,6 +49,7 @@ public class FlatEffectDark extends RelativeLayout {
     }
 
     private void setup() {
+        color = Color.parseColor("#8db1acad");
         this.setClickable(true);
         highlight = new FrameLayout(getContext());
         highlight.setBackgroundColor(Color.TRANSPARENT);
