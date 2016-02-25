@@ -112,11 +112,11 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
         phrase = bundle.getString("phrase");
 
         idiomeEntity = new IdiomeEntity();
-        idiomeEntity = DataSource.getInstance().getIdiomByPharse(phrase);
+        idiomeEntity = DataSource.getIdiomByPharse(phrase);
 
         deletePhraseNotInData(idiomeEntity.listSynonym);
         deletePhraseNotInData(idiomeEntity.listAntonym);
-        DataSource.getInstance().updateRecent(phrase);
+        DataSource.updateRecent(phrase);
         setUpToolbar();
 
     }
@@ -131,7 +131,7 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
     void deletePhraseNotInData(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
             IdiomeEntity idiomeEntity = new IdiomeEntity();
-            idiomeEntity = DataSource.getInstance().getIdiomByPharse(list.get(i));
+            idiomeEntity = DataSource.getIdiomByPharse(list.get(i));
             if (!idiomeEntity.isInData) {
                 list.remove(i);
                 i--;
@@ -163,7 +163,7 @@ public abstract class BaseDetailIdiomFragment extends BaseFragment {
         getBaseActivity().getToolBarItem2().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataSource.getInstance().changeFavorite(phrase);
+                DataSource.changeFavorite(phrase);
                 if (idiomeEntity.isFavorite > 0) {
                     idiomeEntity.isFavorite = 0;
                     getBaseActivity().getBtnToolBarItem2().setBackgroundResource(R.drawable.star_icon_white);

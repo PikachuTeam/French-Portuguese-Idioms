@@ -47,7 +47,7 @@ public class RecentPage extends Page implements RecentAdapter.ClickListener {
 
     public void refreshData() {
         list = new ArrayList<>();
-        list = DataSource.getInstance().getIdiomsRecent(MAX_COUNT);
+        list = DataSource.getIdiomsRecent(MAX_COUNT);
         if (list.isEmpty()) {
             noRecent.setVisibility(View.VISIBLE);
         } else {
@@ -80,7 +80,7 @@ public class RecentPage extends Page implements RecentAdapter.ClickListener {
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setMlisListener(this);
 
-        DataSource.getInstance().changeFavorite(list.get(position).Phrase);
+        DataSource.changeFavorite(list.get(position).Phrase);
     }
 
     @Override

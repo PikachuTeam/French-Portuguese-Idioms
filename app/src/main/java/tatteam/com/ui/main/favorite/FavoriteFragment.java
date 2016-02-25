@@ -70,7 +70,7 @@ public class FavoriteFragment extends BaseFragment implements FavoriteAdapter.Cl
 
     @Override
     public void onFavoriteChange(int position) {
-        DataSource.getInstance().changeFavorite(list.get(position).Phrase);
+        DataSource.changeFavorite(list.get(position).Phrase);
         makeSnackBar(getString(R.string.removed_from_favorite));
         list = getListFavorite();
         mAdapter.updateData(list);
@@ -82,9 +82,9 @@ public class FavoriteFragment extends BaseFragment implements FavoriteAdapter.Cl
 
     public List<IdiomeEntity> getListFavorite() {
 
-        List<LetterEntity> letterEntities = DataSource.getInstance().getLetters();
+        List<LetterEntity> letterEntities = DataSource.getLetters();
 
-        list = DataSource.getInstance().getListFavorite();
+        list = DataSource.getListFavorite();
         List<IdiomeEntity> listFavorite = new ArrayList<>();
 
         //create favorites

@@ -31,7 +31,7 @@ public class ListIdiomsPage extends Page implements ListIdiomsAdapter.ClickListe
         super(activity);
         this.letter = letter;
         list = new ArrayList<>();
-        list = DataSource.getInstance().getIdiomsByLetter(letter);
+        list = DataSource.getIdiomsByLetter(letter);
 
         mRecyclerView = (RecyclerView) getContent().findViewById(R.id.recycler_view_list_idioms);
         mRecyclerView.setHasFixedSize(true);
@@ -74,6 +74,6 @@ public class ListIdiomsPage extends Page implements ListIdiomsAdapter.ClickListe
         mAdapter = new ListIdiomsAdapter(list);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setMlisListener(this);
-        DataSource.getInstance().changeFavorite(list.get(position).Phrase);
+        DataSource.changeFavorite(list.get(position).Phrase);
     }
 }

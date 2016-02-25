@@ -31,7 +31,7 @@ public class AlphabetPage extends Page implements AlphabetAdapter.ClickListener 
         super(activity);
 
         mCharacter = new ArrayList<>();
-        List<LetterEntity> list = DataSource.getInstance().getLetters();
+        List<LetterEntity> list = DataSource.getLetters();
         for (int i = 0; i < list.size(); i++) {
             mCharacter.add(list.get(i).letter);
         }

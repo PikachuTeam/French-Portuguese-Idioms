@@ -1,12 +1,12 @@
 package tatteam.com.database;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import tatteam.com.app_common.sqlite.BaseDataSource;
 import tatteam.com.entiny.IdiomeEntity;
 import tatteam.com.entiny.LetterEntity;
 import tatteam.com.entiny.TopicEntity;
@@ -15,47 +15,11 @@ import tatteam.com.entiny.TopicEntity;
 /**
  * Created by ThanhNH on 2/1/2015.
  */
-public class DataSource {
-
-    private static DataSource instance;
-    private Context context;
-    private SQLiteDatabase sqLiteDatabase;
-
-    private DataSource() {
-    }
-
-    public static DataSource getInstance() {
-        if (instance == null) {
-            instance = new DataSource();
-        }
-        return instance;
-    }
-
-    public void init(Context context) {
-        this.context = context;
-    }
-
-    //import db from assets if need and open connection
-    public void createDatabaseIfNeed() {
-        this.openConnection();
-    }
-
-    private void openConnection() {
-        if (sqLiteDatabase == null || !sqLiteDatabase.isOpen()) {
-            AssetDatabaseOpenHelper assetDatabaseOpenHelper = new AssetDatabaseOpenHelper(context);
-            sqLiteDatabase = assetDatabaseOpenHelper.openDatabase();
-        }
-    }
-
-    private void closeConnection() {
-        if (sqLiteDatabase != null && sqLiteDatabase.isOpen()) {
-            sqLiteDatabase.close();
-        }
-    }
+public class DataSource extends BaseDataSource {
 
 
-    public List<LetterEntity> getLetters() {
-
+    public static List<LetterEntity> getLetters() {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Letters", null);
         List<LetterEntity> listLetter = new ArrayList<LetterEntity>();
         cursor.moveToFirst();
@@ -67,11 +31,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return listLetter;
     }
 
-    public List<LetterEntity> getLettersTopic() {
-
+    public static List<LetterEntity> getLettersTopic() {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT distinct(substr(Concept,1,1)) FROM Concepts", null);
         List<LetterEntity> listLetter = new ArrayList<LetterEntity>();
         cursor.moveToFirst();
@@ -83,10 +48,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return listLetter;
     }
 
-    public List<IdiomeEntity> getListIdiomByPharse(List<String> phrases) {
+    public static List<IdiomeEntity> getListIdiomByPharse(List<String> phrases) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<IdiomeEntity> list = new ArrayList<>();
         if (phrases == null) return list;
         String string = "(";
@@ -128,8 +95,8 @@ public class DataSource {
 
     }
 
-    public IdiomeEntity getIdiomByPharse(String pharse) {
-
+    public static IdiomeEntity getIdiomByPharse(String pharse) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Phrases where Phrase = ? limit 1", new String[]{pharse});
         IdiomeEntity idiome = new IdiomeEntity();
         if (cursor.getCount() > 0) {
@@ -148,11 +115,12 @@ public class DataSource {
             idiome.isInData = true;
             cursor.close();
         }
-
+        closeConnection();
         return idiome;
     }
 
-    public List<IdiomeEntity> getListFavorite() {
+    public static List<IdiomeEntity> getListFavorite() {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Phrases where IsFavorite = 1 order by Phrase", null);
         List<IdiomeEntity> list = new ArrayList<>();
         if (cursor.getCount() == 0) return list;
@@ -174,10 +142,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public List<IdiomeEntity> getIdiomsByLetter(String letter) {
+    public static List<IdiomeEntity> getIdiomsByLetter(String letter) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Phrases where Phrases.Letter =?", new String[]{letter});
         List<IdiomeEntity> list = new ArrayList<>();
         cursor.moveToFirst();
@@ -200,10 +170,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public List<IdiomeEntity> getIdiomsRecent(int count) {
+    public static List<IdiomeEntity> getIdiomsRecent(int count) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Phrases where IsRecent > 0 order by IsRecent desc limit ?", new String[]{"" + count});
         List<IdiomeEntity> list = new ArrayList<>();
         if (cursor != null && cursor.moveToFirst())
@@ -224,11 +196,12 @@ public class DataSource {
                 cursor.moveToNext();
             }
         cursor.close();
-
+        closeConnection();
         return list;
     }
 
-    public List<TopicEntity> getTopicsByLetter(String letter) {
+    public static List<TopicEntity> getTopicsByLetter(String letter) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         String s = letter + "%";
 
         Cursor cursor = sqLiteDatabase.rawQuery("Select * from Concepts where Concept LIKE ? ", new String[]{s});
@@ -248,12 +221,13 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public TopicEntity getTopicsByConcept(String concept) {
+    public static TopicEntity getTopicsByConcept(String concept) {
 
-
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Concepts where Concept = ? limit 1 ", new String[]{concept});
 
 
@@ -267,16 +241,12 @@ public class DataSource {
 
 
         cursor.close();
+        closeConnection();
         return topic;
     }
 
-    public void destroy() {
-        closeConnection();
-        instance = null;
-    }
 
-
-    public List<String> splitList(String s) {
+    public static List<String> splitList(String s) {
         String[] splitlist = new String[]{};
         List<String> list = new ArrayList<>();
         if (s != null) {
@@ -290,7 +260,8 @@ public class DataSource {
     }
 
 
-    public void changeFavorite(String phrase) {
+    public static void changeFavorite(String phrase) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         IdiomeEntity entity = getIdiomByPharse(phrase);
         int favorite = entity.isFavorite;
         if (favorite == 1) {
@@ -302,22 +273,22 @@ public class DataSource {
             cursor.moveToFirst();
             cursor.close();
         }
+        closeConnection();
 
-
-        ;
     }
 
-    public void updateRecent(String phrase) {
-
+    public static void updateRecent(String phrase) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         int newRecent = getMaxRecent() + 1;
         String value = newRecent + "";
         Cursor cursor = sqLiteDatabase.rawQuery("UPDATE Phrases SET isRecent= ? WHERE Phrase =?", new String[]{value, phrase});
         cursor.moveToFirst();
         cursor.close();
-
+        closeConnection();
     }
 
-    public int getMaxRecent() {
+    public static int getMaxRecent() {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         int max;
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Phrases where IsRecent > 0 order by IsRecent desc limit 1", null);
         if (cursor.getCount() == 0) return 0;
@@ -326,6 +297,7 @@ public class DataSource {
         max = cursor.getInt(10);
 
         cursor.close();
+        closeConnection();
         return max;
 
     }

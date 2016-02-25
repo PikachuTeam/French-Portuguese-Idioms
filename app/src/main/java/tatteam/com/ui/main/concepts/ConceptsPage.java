@@ -35,8 +35,8 @@ public class ConceptsPage extends Page implements CharacterAdapter.ClickListener
 
         listletter = new ArrayList<>();
         listtemp = new ArrayList<>();
-        listtemp = DataSource.getInstance().getLettersTopic();
-        listletter = DataSource.getInstance().getLetters();
+        listtemp = DataSource.getLettersTopic();
+        listletter = DataSource.getLetters();
 
         for (int i = 0; i < listletter.size(); i++) {
             if (isLetterInList(listletter.get(i).letter, listtemp) == false)
@@ -62,7 +62,7 @@ public class ConceptsPage extends Page implements CharacterAdapter.ClickListener
         conceptsContanier = ((RelativeLayout) getContent().findViewById(R.id.list_concepts_container));
 
         listtopic = new ArrayList<>();
-        listtopic = DataSource.getInstance().getTopicsByLetter(listletter.get(0).letter);
+        listtopic = DataSource.getTopicsByLetter(listletter.get(0).letter);
         adapterTopic = new TopicAdapter(listtopic);
         rvTopics.setAdapter(adapterTopic);
         adapterTopic.setMlisListener(this);
@@ -84,7 +84,7 @@ public class ConceptsPage extends Page implements CharacterAdapter.ClickListener
         }
         listletter.get(position).selected = true;
         adapterCharacter.notifyDataSetChanged();
-        listtopic = DataSource.getInstance().getTopicsByLetter(listletter.get(position).letter.toUpperCase());
+        listtopic = DataSource.getTopicsByLetter(listletter.get(position).letter.toUpperCase());
         adapterTopic = new TopicAdapter(listtopic);
         rvTopics.setAdapter(adapterTopic);
         rvTopics.invalidate();

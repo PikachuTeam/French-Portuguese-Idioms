@@ -78,8 +78,8 @@ public class ListConceptsPage extends Page implements ListIdiomsAdapter.ClickLis
 
     public void reloadData() {
         listIdiomes = new ArrayList<>();
-        TopicEntity topic = DataSource.getInstance().getTopicsByConcept(this.topicName);
-        listIdiomes = DataSource.getInstance().getListIdiomByPharse(topic.listPhrase);
+        TopicEntity topic = DataSource.getTopicsByConcept(this.topicName);
+        listIdiomes = DataSource.getListIdiomByPharse(topic.listPhrase);
 
         mAdapter = new ListIdiomsAdapter(listIdiomes);
         mRecyclerView.setAdapter(mAdapter);
@@ -178,7 +178,7 @@ public class ListConceptsPage extends Page implements ListIdiomsAdapter.ClickLis
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setMlisListener(this);
 
-        DataSource.getInstance().changeFavorite(listIdiomes.get(position).Phrase);
+        DataSource.changeFavorite(listIdiomes.get(position).Phrase);
     }
 
     public void setListener(OnActiveListConceptsListener listener) {
