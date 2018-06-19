@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.gms.ads.AdView;
 
 import java.util.Locale;
 
@@ -25,7 +24,6 @@ import tatteam.com.app_common.ads.AdsBigBannerHandler;
 import tatteam.com.app_common.ads.AdsSmallBannerHandler;
 import tatteam.com.app_common.util.AppConstant;
 import tatteam.com.app_common.util.AppSpeaker;
-import tatteam.com.app_common.util.CloseAppHandler;
 import tatteam.com.ui.main.favorite.FavoriteFragment;
 import tatteam.com.utility.ShareUtil;
 
